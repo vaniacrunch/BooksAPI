@@ -1,0 +1,58 @@
+version: '3.7'
+
+networks:
+    BooksAPI:
+        driver: bridge
+
+volumes:
+    BooksAPI-db:
+        driver: local
+
+services:
+    BooksAPI-php:
+        container_name: BooksAPI-php
+        depends_on:
+            - BooksAPI-db
+        image: devilbox/php-fpm:8.2-work
+        restart: on-failure
+        working_dir: /var/www/app
+        tty: true
+        volumes:
+            - ./src:/var/www/app
+        networks:
+            - BooksAPI
+        expose:
+            - 9000
+        command: "php-fpm"
+
+    BooksAPI-db:
+        container_name: BooksAPI-db
+        image: mysql:latest
+        networks:
+            - BooksAPI
+        ports:
+            - "3306:3306"
+        restart: on-failure
+        environment:
+            MYSQL_DATABASE: laravel-boilerplate
+            MYSQL_PASSWORD: secret
+            MYSQL_USER: secret
+            MYSQL_ROOT_PASSWORD: secret
+        expose:
+            - 3306
+
+
+    BooksAPI-server:
+        container_name: BooksAPI-server
+        depends_on:
+            - BooksAPI-php
+        image: nginx:latest
+        restart: on-failure
+        volumes:
+            - ./src:/var/www/app
+            - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+        ports:
+            - "80:80"
+            - "443:443"
+        networks:
+            - BooksAPI

@@ -1,0 +1,670 @@
+{
+	"info": {
+		"_postman_id": "a3a1b795-84a7-407a-aa2d-cf3c23f2443d",
+		"name": "Books",
+		"description": "# 🚀 Get started here\n\nThis collection guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this collection**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these request types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT and PATCH requests.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a variable called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more scripts in \"Tests\" to verify if the API works as expected and execute flows.\n    \n\n## ℹ️ Resources\n\n[Building requests](https://learning.postman.com/docs/sending-requests/requests/)  \n[Authorizing requests](https://learning.postman.com/docs/sending-requests/authorization/)  \n[Using variables](https://learning.postman.com/docs/sending-requests/variables/)  \n[Managing environments](https://learning.postman.com/docs/sending-requests/managing-environments/)  \n[Writing scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2848718"
+	},
+	"item": [
+		{
+			"name": "GET All books",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/books",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"books"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": [
+				{
+					"name": "Get data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/books",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.25.3"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 Jul 2024 07:48:37 GMT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Homenick Inc\",\n            \"author\": \"Santina Trantow\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1976-05-02\",\n            \"amount_of_words\": 3644,\n            \"price\": \"4.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Buckridge, Abbott and Pouros\",\n            \"author\": \"Jabari Hoeger\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1988-10-29\",\n            \"amount_of_words\": 2872,\n            \"price\": \"815.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Pagac and Sons\",\n            \"author\": \"Douglas Barton\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2009-08-01\",\n            \"amount_of_words\": 3947,\n            \"price\": \"181.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 4,\n            \"title\": \"Miss\",\n            \"publisher\": \"Miller, Roberts and Blick\",\n            \"author\": \"Clair Altenwerth\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1996-09-22\",\n            \"amount_of_words\": 1824,\n            \"price\": \"161.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 5,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Ondricka Inc\",\n            \"author\": \"Kristin Greenholt\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1970-04-20\",\n            \"amount_of_words\": 6843,\n            \"price\": \"538.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 6,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Bogan-Nikolaus\",\n            \"author\": \"Madilyn Kozey\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2011-07-12\",\n            \"amount_of_words\": 2125,\n            \"price\": \"832.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 7,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Shanahan, D'Amore and Lesch\",\n            \"author\": \"Joanny Terry\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1975-03-29\",\n            \"amount_of_words\": 870,\n            \"price\": \"578.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 8,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Kautzer, Medhurst and Gottlieb\",\n            \"author\": \"Shanny Klein\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1974-10-09\",\n            \"amount_of_words\": 4851,\n            \"price\": \"391.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 9,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Brekke-Considine\",\n            \"author\": \"Jodie Lindgren\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"2008-07-03\",\n            \"amount_of_words\": 9146,\n            \"price\": \"191.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 10,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Breitenberg and Sons\",\n            \"author\": \"Wendy Pollich\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"2006-05-19\",\n            \"amount_of_words\": 4064,\n            \"price\": \"526.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 11,\n            \"title\": \"Miss\",\n            \"publisher\": \"Schulist Inc\",\n            \"author\": \"Holly Brakus\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1997-08-25\",\n            \"amount_of_words\": 6238,\n            \"price\": \"179.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 12,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Breitenberg Inc\",\n            \"author\": \"Maryjane Hand\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1971-01-16\",\n            \"amount_of_words\": 9253,\n            \"price\": \"804.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 13,\n            \"title\": \"Miss\",\n            \"publisher\": \"Weimann, Wiza and Carroll\",\n            \"author\": \"Jefferey Gottlieb\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1989-01-16\",\n            \"amount_of_words\": 5244,\n            \"price\": \"629.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 14,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Mills LLC\",\n            \"author\": \"Santiago Ward\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1984-04-01\",\n            \"amount_of_words\": 7715,\n            \"price\": \"456.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 15,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Murazik-O'Kon\",\n            \"author\": \"Marie Runolfsson\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1990-09-20\",\n            \"amount_of_words\": 1883,\n            \"price\": \"76.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 16,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Breitenberg-Walter\",\n            \"author\": \"Maggie Batz\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1989-05-31\",\n            \"amount_of_words\": 8697,\n            \"price\": \"614.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 17,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Runte, Conn and Rutherford\",\n            \"author\": \"Terence Zulauf\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1982-04-21\",\n            \"amount_of_words\": 7852,\n            \"price\": \"87.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 18,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Mohr Inc\",\n            \"author\": \"Mable Weber\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"2001-11-30\",\n            \"amount_of_words\": 6170,\n            \"price\": \"395.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 19,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Friesen Inc\",\n            \"author\": \"Mayra Haag\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1988-02-02\",\n            \"amount_of_words\": 6103,\n            \"price\": \"504.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 20,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Wilkinson, Grimes and Okuneva\",\n            \"author\": \"Heloise Flatley\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1987-03-16\",\n            \"amount_of_words\": 3134,\n            \"price\": \"761.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 21,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Considine, Schmeler and Haag\",\n            \"author\": \"Izaiah Willms\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2008-04-06\",\n            \"amount_of_words\": 8510,\n            \"price\": \"920.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 22,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Hoppe, VonRueden and Blick\",\n            \"author\": \"Dina Grimes\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2018-06-12\",\n            \"amount_of_words\": 1732,\n            \"price\": \"90.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 23,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Lakin-Davis\",\n            \"author\": \"Buford Watsica\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"2022-04-28\",\n            \"amount_of_words\": 3219,\n            \"price\": \"952.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 24,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Witting-Wehner\",\n            \"author\": \"Elvis Miller\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1994-03-10\",\n            \"amount_of_words\": 4544,\n            \"price\": \"366.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 25,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Farrell PLC\",\n            \"author\": \"Rebeka Heller\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"2011-12-19\",\n            \"amount_of_words\": 5980,\n            \"price\": \"152.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 26,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Welch and Sons\",\n            \"author\": \"Kristian Ledner\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"2021-06-29\",\n            \"amount_of_words\": 3871,\n            \"price\": \"543.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 27,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Miller LLC\",\n            \"author\": \"Pamela Jacobi\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1991-01-21\",\n            \"amount_of_words\": 4915,\n            \"price\": \"135.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 28,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Reilly-Heathcote\",\n            \"author\": \"Hollie Hill\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"2018-01-02\",\n            \"amount_of_words\": 813,\n            \"price\": \"196.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 29,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Schiller, Hettinger and Trantow\",\n            \"author\": \"Larue Hermiston\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1978-10-16\",\n            \"amount_of_words\": 4627,\n            \"price\": \"204.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 30,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Hintz and Sons\",\n            \"author\": \"Kelsi Braun\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1991-08-07\",\n            \"amount_of_words\": 2568,\n            \"price\": \"761.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 31,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Denesik, Kerluke and Stehr\",\n            \"author\": \"Caitlyn Cummings\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1981-12-04\",\n            \"amount_of_words\": 745,\n            \"price\": \"87.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 32,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Vandervort, Krajcik and Goyette\",\n            \"author\": \"Delilah Willms\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1983-12-19\",\n            \"amount_of_words\": 9296,\n            \"price\": \"38.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 33,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Monahan-Ryan\",\n            \"author\": \"Spencer Konopelski\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2002-02-10\",\n            \"amount_of_words\": 2329,\n            \"price\": \"990.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 34,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Gerhold-Spencer\",\n            \"author\": \"Carolyne Bernier\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"2012-08-25\",\n            \"amount_of_words\": 2702,\n            \"price\": \"555.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 35,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Fisher-Goodwin\",\n            \"author\": \"Dorothea Bode\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1998-08-16\",\n            \"amount_of_words\": 7814,\n            \"price\": \"45.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 36,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Becker, Upton and Grady\",\n            \"author\": \"Antwon Von\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1992-11-26\",\n            \"amount_of_words\": 8003,\n            \"price\": \"448.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 37,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Gleichner-Moen\",\n            \"author\": \"Zetta Schuppe\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1991-09-13\",\n            \"amount_of_words\": 1817,\n            \"price\": \"312.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 38,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Bogisich-Corwin\",\n            \"author\": \"Paris Bruen\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1991-06-23\",\n            \"amount_of_words\": 3991,\n            \"price\": \"897.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 39,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Haag, Breitenberg and Langosh\",\n            \"author\": \"Tommie Howell\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2017-09-29\",\n            \"amount_of_words\": 8950,\n            \"price\": \"204.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 40,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Murphy, Jacobi and Considine\",\n            \"author\": \"Otilia Rippin\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1972-07-29\",\n            \"amount_of_words\": 6697,\n            \"price\": \"787.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 41,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Funk Ltd\",\n            \"author\": \"Claude Walsh\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2014-10-19\",\n            \"amount_of_words\": 2742,\n            \"price\": \"152.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 42,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Kris-Farrell\",\n            \"author\": \"Sebastian Rogahn\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2003-04-04\",\n            \"amount_of_words\": 1480,\n            \"price\": \"790.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 43,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Romaguera and Sons\",\n            \"author\": \"Bailey Dare\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2014-07-16\",\n            \"amount_of_words\": 1540,\n            \"price\": \"327.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 44,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Heaney-Streich\",\n            \"author\": \"Myrtle Ullrich\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1981-09-28\",\n            \"amount_of_words\": 6571,\n            \"price\": \"751.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 45,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Cummerata, Goyette and Hyatt\",\n            \"author\": \"Morton Bauch\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1979-10-09\",\n            \"amount_of_words\": 7374,\n            \"price\": \"715.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 46,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Koelpin-Brekke\",\n            \"author\": \"Mable Miller\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"2007-03-06\",\n            \"amount_of_words\": 3667,\n            \"price\": \"923.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 47,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Simonis, Altenwerth and Lebsack\",\n            \"author\": \"Ross Mraz\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"2000-04-26\",\n            \"amount_of_words\": 9639,\n            \"price\": \"525.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 48,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Greenfelder Inc\",\n            \"author\": \"Astrid Fahey\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1973-01-24\",\n            \"amount_of_words\": 8357,\n            \"price\": \"967.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 49,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Steuber-Johnston\",\n            \"author\": \"Ava Heidenreich\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1992-10-27\",\n            \"amount_of_words\": 5397,\n            \"price\": \"647.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 50,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Mante-Gibson\",\n            \"author\": \"Erick Shields\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1993-06-02\",\n            \"amount_of_words\": 5213,\n            \"price\": \"107.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 51,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Stiedemann, Kuhlman and Mueller\",\n            \"author\": \"Kaitlin Rempel\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"2003-03-18\",\n            \"amount_of_words\": 2783,\n            \"price\": \"759.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 52,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Tillman PLC\",\n            \"author\": \"Lorena Boyer\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1992-02-25\",\n            \"amount_of_words\": 3951,\n            \"price\": \"798.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 53,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Bahringer-VonRueden\",\n            \"author\": \"Clair Kemmer\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2022-06-14\",\n            \"amount_of_words\": 3611,\n            \"price\": \"961.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 54,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Kohler-Terry\",\n            \"author\": \"Ashly Batz\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2021-12-26\",\n            \"amount_of_words\": 8959,\n            \"price\": \"361.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 55,\n            \"title\": \"Miss\",\n            \"publisher\": \"Hartmann, Miller and Hermann\",\n            \"author\": \"Everardo Beier\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"2009-05-07\",\n            \"amount_of_words\": 4943,\n            \"price\": \"50.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 56,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Davis, Turcotte and Greenfelder\",\n            \"author\": \"Shawna Haag\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1985-07-12\",\n            \"amount_of_words\": 7552,\n            \"price\": \"512.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 57,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Rice, Hackett and Legros\",\n            \"author\": \"Eldridge Feil\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1979-02-06\",\n            \"amount_of_words\": 1226,\n            \"price\": \"82.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 58,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Von, Douglas and O'Connell\",\n            \"author\": \"Carlo West\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1983-03-01\",\n            \"amount_of_words\": 6842,\n            \"price\": \"456.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 59,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Rosenbaum-Gislason\",\n            \"author\": \"Linnea Stroman\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1999-01-26\",\n            \"amount_of_words\": 7991,\n            \"price\": \"901.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 60,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Huels, Runolfsdottir and Howell\",\n            \"author\": \"Clotilde Wyman\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1989-04-19\",\n            \"amount_of_words\": 6163,\n            \"price\": \"371.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 61,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Feil and Sons\",\n            \"author\": \"Broderick Schinner\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2013-06-11\",\n            \"amount_of_words\": 9552,\n            \"price\": \"90.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 62,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Gaylord-Roob\",\n            \"author\": \"Adonis Parker\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2008-06-26\",\n            \"amount_of_words\": 9416,\n            \"price\": \"973.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 63,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Franecki, Hand and Grady\",\n            \"author\": \"Carolyne Murphy\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1979-08-13\",\n            \"amount_of_words\": 4658,\n            \"price\": \"196.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 64,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Dickens-Gulgowski\",\n            \"author\": \"Cory Bahringer\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1989-07-11\",\n            \"amount_of_words\": 3741,\n            \"price\": \"517.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 65,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Maggio, Purdy and Morissette\",\n            \"author\": \"Emmet Kassulke\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1999-09-12\",\n            \"amount_of_words\": 7814,\n            \"price\": \"114.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 66,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Block PLC\",\n            \"author\": \"Audie Halvorson\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2010-09-22\",\n            \"amount_of_words\": 4534,\n            \"price\": \"206.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 67,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Buckridge Inc\",\n            \"author\": \"Jeanette Connelly\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1974-08-17\",\n            \"amount_of_words\": 4082,\n            \"price\": \"926.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 68,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Jakubowski-Zulauf\",\n            \"author\": \"Carole Blanda\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1973-12-16\",\n            \"amount_of_words\": 6062,\n            \"price\": \"156.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 69,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Russel-Sawayn\",\n            \"author\": \"Marilyne Gleichner\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1992-04-11\",\n            \"amount_of_words\": 9077,\n            \"price\": \"46.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 70,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Kunde PLC\",\n            \"author\": \"Norma O'Reilly\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2021-10-27\",\n            \"amount_of_words\": 7373,\n            \"price\": \"194.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 71,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Romaguera-Little\",\n            \"author\": \"Baylee Brown\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1975-04-23\",\n            \"amount_of_words\": 3636,\n            \"price\": \"731.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 72,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Blanda, Schulist and Schuster\",\n            \"author\": \"Caleigh Schowalter\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1988-04-30\",\n            \"amount_of_words\": 8052,\n            \"price\": \"14.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 73,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Tremblay and Sons\",\n            \"author\": \"Janelle Grimes\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1979-07-17\",\n            \"amount_of_words\": 8196,\n            \"price\": \"935.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 74,\n            \"title\": \"Ms.\",\n            \"publisher\": \"McGlynn, Bergstrom and Luettgen\",\n            \"author\": \"Margarett Bergstrom\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2011-07-28\",\n            \"amount_of_words\": 4431,\n            \"price\": \"134.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 75,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Zboncak-Moen\",\n            \"author\": \"Cale Smitham\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"2002-12-01\",\n            \"amount_of_words\": 2930,\n            \"price\": \"432.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 76,\n            \"title\": \"Miss\",\n            \"publisher\": \"Skiles Ltd\",\n            \"author\": \"Lincoln Hammes\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1975-11-30\",\n            \"amount_of_words\": 8586,\n            \"price\": \"285.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 77,\n            \"title\": \"Miss\",\n            \"publisher\": \"Dach-Hickle\",\n            \"author\": \"Kiarra Ernser\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"2001-10-05\",\n            \"amount_of_words\": 2662,\n            \"price\": \"555.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 78,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Rempel, Lueilwitz and Marquardt\",\n            \"author\": \"Trent Howe\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2022-03-12\",\n            \"amount_of_words\": 3483,\n            \"price\": \"782.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 79,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Morissette-McGlynn\",\n            \"author\": \"Edward Bosco\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"2001-09-18\",\n            \"amount_of_words\": 8535,\n            \"price\": \"274.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 80,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Hansen PLC\",\n            \"author\": \"Amelia Hyatt\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"2008-07-08\",\n            \"amount_of_words\": 3253,\n            \"price\": \"37.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 81,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Howell-Romaguera\",\n            \"author\": \"Waldo Sipes\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2007-08-16\",\n            \"amount_of_words\": 4094,\n            \"price\": \"702.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 82,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Ritchie PLC\",\n            \"author\": \"Arvilla Connelly\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2007-01-17\",\n            \"amount_of_words\": 5517,\n            \"price\": \"241.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 83,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Grant-Boehm\",\n            \"author\": \"Haskell Abbott\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1973-06-23\",\n            \"amount_of_words\": 1380,\n            \"price\": \"244.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 84,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Powlowski LLC\",\n            \"author\": \"Clotilde Nienow\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2014-07-10\",\n            \"amount_of_words\": 3602,\n            \"price\": \"142.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 85,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Kreiger, Larson and Schaefer\",\n            \"author\": \"Susanna Hammes\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"2017-03-15\",\n            \"amount_of_words\": 53,\n            \"price\": \"614.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 86,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Langosh-Parker\",\n            \"author\": \"Crawford Cassin\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1997-04-07\",\n            \"amount_of_words\": 6329,\n            \"price\": \"671.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 87,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Stanton-Stracke\",\n            \"author\": \"Lurline Hegmann\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2020-12-13\",\n            \"amount_of_words\": 6045,\n            \"price\": \"334.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 88,\n            \"title\": \"Miss\",\n            \"publisher\": \"Stanton, Boyer and Marquardt\",\n            \"author\": \"Ciara Runolfsson\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1989-04-13\",\n            \"amount_of_words\": 3924,\n            \"price\": \"624.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 89,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Pfeffer-Feest\",\n            \"author\": \"Lucy Braun\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1982-12-06\",\n            \"amount_of_words\": 6355,\n            \"price\": \"985.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 90,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Dietrich Ltd\",\n            \"author\": \"Lia Fritsch\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1999-11-12\",\n            \"amount_of_words\": 4168,\n            \"price\": \"842.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 91,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Shields-Cartwright\",\n            \"author\": \"Giovanni Graham\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2014-05-24\",\n            \"amount_of_words\": 7839,\n            \"price\": \"807.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 92,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Mohr, Gleichner and Greenfelder\",\n            \"author\": \"Gladyce Kub\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1981-09-15\",\n            \"amount_of_words\": 7280,\n            \"price\": \"474.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 93,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Kub, Rodriguez and Schulist\",\n            \"author\": \"Raheem Collins\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2002-07-23\",\n            \"amount_of_words\": 8075,\n            \"price\": \"478.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 94,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Walsh PLC\",\n            \"author\": \"Soledad Pfeffer\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1970-03-28\",\n            \"amount_of_words\": 7861,\n            \"price\": \"914.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 95,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Sawayn, Abshire and Rath\",\n            \"author\": \"Mathew Streich\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1977-05-17\",\n            \"amount_of_words\": 8691,\n            \"price\": \"743.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 96,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Schoen LLC\",\n            \"author\": \"Yvonne Crona\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1982-03-03\",\n            \"amount_of_words\": 5571,\n            \"price\": \"992.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 97,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Friesen-Labadie\",\n            \"author\": \"Princess Wolf\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1992-07-15\",\n            \"amount_of_words\": 2683,\n            \"price\": \"738.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 98,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Stiedemann PLC\",\n            \"author\": \"Uriel Reichel\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"2020-02-22\",\n            \"amount_of_words\": 7605,\n            \"price\": \"730.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 99,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Pollich-Franecki\",\n            \"author\": \"Lyda Simonis\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1993-08-27\",\n            \"amount_of_words\": 6281,\n            \"price\": \"891.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 100,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Crooks, Daniel and Nolan\",\n            \"author\": \"Sammie Cartwright\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1988-08-12\",\n            \"amount_of_words\": 8106,\n            \"price\": \"12.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Single Book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/books/{{bookId}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"{{bookId}}"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": [
+				{
+					"name": "Get data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/books",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.25.3"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 Jul 2024 07:48:37 GMT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Homenick Inc\",\n            \"author\": \"Santina Trantow\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1976-05-02\",\n            \"amount_of_words\": 3644,\n            \"price\": \"4.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Buckridge, Abbott and Pouros\",\n            \"author\": \"Jabari Hoeger\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1988-10-29\",\n            \"amount_of_words\": 2872,\n            \"price\": \"815.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Pagac and Sons\",\n            \"author\": \"Douglas Barton\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2009-08-01\",\n            \"amount_of_words\": 3947,\n            \"price\": \"181.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 4,\n            \"title\": \"Miss\",\n            \"publisher\": \"Miller, Roberts and Blick\",\n            \"author\": \"Clair Altenwerth\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1996-09-22\",\n            \"amount_of_words\": 1824,\n            \"price\": \"161.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 5,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Ondricka Inc\",\n            \"author\": \"Kristin Greenholt\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1970-04-20\",\n            \"amount_of_words\": 6843,\n            \"price\": \"538.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 6,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Bogan-Nikolaus\",\n            \"author\": \"Madilyn Kozey\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2011-07-12\",\n            \"amount_of_words\": 2125,\n            \"price\": \"832.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 7,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Shanahan, D'Amore and Lesch\",\n            \"author\": \"Joanny Terry\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1975-03-29\",\n            \"amount_of_words\": 870,\n            \"price\": \"578.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 8,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Kautzer, Medhurst and Gottlieb\",\n            \"author\": \"Shanny Klein\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1974-10-09\",\n            \"amount_of_words\": 4851,\n            \"price\": \"391.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 9,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Brekke-Considine\",\n            \"author\": \"Jodie Lindgren\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"2008-07-03\",\n            \"amount_of_words\": 9146,\n            \"price\": \"191.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 10,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Breitenberg and Sons\",\n            \"author\": \"Wendy Pollich\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"2006-05-19\",\n            \"amount_of_words\": 4064,\n            \"price\": \"526.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 11,\n            \"title\": \"Miss\",\n            \"publisher\": \"Schulist Inc\",\n            \"author\": \"Holly Brakus\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1997-08-25\",\n            \"amount_of_words\": 6238,\n            \"price\": \"179.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 12,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Breitenberg Inc\",\n            \"author\": \"Maryjane Hand\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1971-01-16\",\n            \"amount_of_words\": 9253,\n            \"price\": \"804.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 13,\n            \"title\": \"Miss\",\n            \"publisher\": \"Weimann, Wiza and Carroll\",\n            \"author\": \"Jefferey Gottlieb\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1989-01-16\",\n            \"amount_of_words\": 5244,\n            \"price\": \"629.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 14,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Mills LLC\",\n            \"author\": \"Santiago Ward\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1984-04-01\",\n            \"amount_of_words\": 7715,\n            \"price\": \"456.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 15,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Murazik-O'Kon\",\n            \"author\": \"Marie Runolfsson\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1990-09-20\",\n            \"amount_of_words\": 1883,\n            \"price\": \"76.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 16,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Breitenberg-Walter\",\n            \"author\": \"Maggie Batz\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1989-05-31\",\n            \"amount_of_words\": 8697,\n            \"price\": \"614.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 17,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Runte, Conn and Rutherford\",\n            \"author\": \"Terence Zulauf\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1982-04-21\",\n            \"amount_of_words\": 7852,\n            \"price\": \"87.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 18,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Mohr Inc\",\n            \"author\": \"Mable Weber\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"2001-11-30\",\n            \"amount_of_words\": 6170,\n            \"price\": \"395.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 19,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Friesen Inc\",\n            \"author\": \"Mayra Haag\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1988-02-02\",\n            \"amount_of_words\": 6103,\n            \"price\": \"504.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 20,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Wilkinson, Grimes and Okuneva\",\n            \"author\": \"Heloise Flatley\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1987-03-16\",\n            \"amount_of_words\": 3134,\n            \"price\": \"761.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 21,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Considine, Schmeler and Haag\",\n            \"author\": \"Izaiah Willms\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2008-04-06\",\n            \"amount_of_words\": 8510,\n            \"price\": \"920.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 22,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Hoppe, VonRueden and Blick\",\n            \"author\": \"Dina Grimes\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2018-06-12\",\n            \"amount_of_words\": 1732,\n            \"price\": \"90.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 23,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Lakin-Davis\",\n            \"author\": \"Buford Watsica\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"2022-04-28\",\n            \"amount_of_words\": 3219,\n            \"price\": \"952.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 24,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Witting-Wehner\",\n            \"author\": \"Elvis Miller\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1994-03-10\",\n            \"amount_of_words\": 4544,\n            \"price\": \"366.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 25,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Farrell PLC\",\n            \"author\": \"Rebeka Heller\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"2011-12-19\",\n            \"amount_of_words\": 5980,\n            \"price\": \"152.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 26,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Welch and Sons\",\n            \"author\": \"Kristian Ledner\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"2021-06-29\",\n            \"amount_of_words\": 3871,\n            \"price\": \"543.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 27,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Miller LLC\",\n            \"author\": \"Pamela Jacobi\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1991-01-21\",\n            \"amount_of_words\": 4915,\n            \"price\": \"135.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 28,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Reilly-Heathcote\",\n            \"author\": \"Hollie Hill\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"2018-01-02\",\n            \"amount_of_words\": 813,\n            \"price\": \"196.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 29,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Schiller, Hettinger and Trantow\",\n            \"author\": \"Larue Hermiston\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1978-10-16\",\n            \"amount_of_words\": 4627,\n            \"price\": \"204.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 30,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Hintz and Sons\",\n            \"author\": \"Kelsi Braun\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1991-08-07\",\n            \"amount_of_words\": 2568,\n            \"price\": \"761.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 31,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Denesik, Kerluke and Stehr\",\n            \"author\": \"Caitlyn Cummings\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1981-12-04\",\n            \"amount_of_words\": 745,\n            \"price\": \"87.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 32,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Vandervort, Krajcik and Goyette\",\n            \"author\": \"Delilah Willms\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1983-12-19\",\n            \"amount_of_words\": 9296,\n            \"price\": \"38.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 33,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Monahan-Ryan\",\n            \"author\": \"Spencer Konopelski\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2002-02-10\",\n            \"amount_of_words\": 2329,\n            \"price\": \"990.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 34,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Gerhold-Spencer\",\n            \"author\": \"Carolyne Bernier\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"2012-08-25\",\n            \"amount_of_words\": 2702,\n            \"price\": \"555.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 35,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Fisher-Goodwin\",\n            \"author\": \"Dorothea Bode\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1998-08-16\",\n            \"amount_of_words\": 7814,\n            \"price\": \"45.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 36,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Becker, Upton and Grady\",\n            \"author\": \"Antwon Von\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1992-11-26\",\n            \"amount_of_words\": 8003,\n            \"price\": \"448.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 37,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Gleichner-Moen\",\n            \"author\": \"Zetta Schuppe\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1991-09-13\",\n            \"amount_of_words\": 1817,\n            \"price\": \"312.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 38,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Bogisich-Corwin\",\n            \"author\": \"Paris Bruen\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1991-06-23\",\n            \"amount_of_words\": 3991,\n            \"price\": \"897.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 39,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Haag, Breitenberg and Langosh\",\n            \"author\": \"Tommie Howell\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2017-09-29\",\n            \"amount_of_words\": 8950,\n            \"price\": \"204.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 40,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Murphy, Jacobi and Considine\",\n            \"author\": \"Otilia Rippin\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1972-07-29\",\n            \"amount_of_words\": 6697,\n            \"price\": \"787.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 41,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Funk Ltd\",\n            \"author\": \"Claude Walsh\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2014-10-19\",\n            \"amount_of_words\": 2742,\n            \"price\": \"152.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 42,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Kris-Farrell\",\n            \"author\": \"Sebastian Rogahn\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2003-04-04\",\n            \"amount_of_words\": 1480,\n            \"price\": \"790.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 43,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Romaguera and Sons\",\n            \"author\": \"Bailey Dare\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2014-07-16\",\n            \"amount_of_words\": 1540,\n            \"price\": \"327.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 44,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Heaney-Streich\",\n            \"author\": \"Myrtle Ullrich\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1981-09-28\",\n            \"amount_of_words\": 6571,\n            \"price\": \"751.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 45,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Cummerata, Goyette and Hyatt\",\n            \"author\": \"Morton Bauch\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1979-10-09\",\n            \"amount_of_words\": 7374,\n            \"price\": \"715.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 46,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Koelpin-Brekke\",\n            \"author\": \"Mable Miller\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"2007-03-06\",\n            \"amount_of_words\": 3667,\n            \"price\": \"923.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 47,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Simonis, Altenwerth and Lebsack\",\n            \"author\": \"Ross Mraz\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"2000-04-26\",\n            \"amount_of_words\": 9639,\n            \"price\": \"525.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 48,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Greenfelder Inc\",\n            \"author\": \"Astrid Fahey\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1973-01-24\",\n            \"amount_of_words\": 8357,\n            \"price\": \"967.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 49,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Steuber-Johnston\",\n            \"author\": \"Ava Heidenreich\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1992-10-27\",\n            \"amount_of_words\": 5397,\n            \"price\": \"647.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 50,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Mante-Gibson\",\n            \"author\": \"Erick Shields\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1993-06-02\",\n            \"amount_of_words\": 5213,\n            \"price\": \"107.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 51,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Stiedemann, Kuhlman and Mueller\",\n            \"author\": \"Kaitlin Rempel\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"2003-03-18\",\n            \"amount_of_words\": 2783,\n            \"price\": \"759.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 52,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Tillman PLC\",\n            \"author\": \"Lorena Boyer\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1992-02-25\",\n            \"amount_of_words\": 3951,\n            \"price\": \"798.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 53,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Bahringer-VonRueden\",\n            \"author\": \"Clair Kemmer\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2022-06-14\",\n            \"amount_of_words\": 3611,\n            \"price\": \"961.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 54,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Kohler-Terry\",\n            \"author\": \"Ashly Batz\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2021-12-26\",\n            \"amount_of_words\": 8959,\n            \"price\": \"361.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 55,\n            \"title\": \"Miss\",\n            \"publisher\": \"Hartmann, Miller and Hermann\",\n            \"author\": \"Everardo Beier\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"2009-05-07\",\n            \"amount_of_words\": 4943,\n            \"price\": \"50.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 56,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Davis, Turcotte and Greenfelder\",\n            \"author\": \"Shawna Haag\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1985-07-12\",\n            \"amount_of_words\": 7552,\n            \"price\": \"512.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 57,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Rice, Hackett and Legros\",\n            \"author\": \"Eldridge Feil\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1979-02-06\",\n            \"amount_of_words\": 1226,\n            \"price\": \"82.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 58,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Von, Douglas and O'Connell\",\n            \"author\": \"Carlo West\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1983-03-01\",\n            \"amount_of_words\": 6842,\n            \"price\": \"456.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 59,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Rosenbaum-Gislason\",\n            \"author\": \"Linnea Stroman\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1999-01-26\",\n            \"amount_of_words\": 7991,\n            \"price\": \"901.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 60,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Huels, Runolfsdottir and Howell\",\n            \"author\": \"Clotilde Wyman\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1989-04-19\",\n            \"amount_of_words\": 6163,\n            \"price\": \"371.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 61,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Feil and Sons\",\n            \"author\": \"Broderick Schinner\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2013-06-11\",\n            \"amount_of_words\": 9552,\n            \"price\": \"90.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 62,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Gaylord-Roob\",\n            \"author\": \"Adonis Parker\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2008-06-26\",\n            \"amount_of_words\": 9416,\n            \"price\": \"973.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 63,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Franecki, Hand and Grady\",\n            \"author\": \"Carolyne Murphy\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1979-08-13\",\n            \"amount_of_words\": 4658,\n            \"price\": \"196.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 64,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Dickens-Gulgowski\",\n            \"author\": \"Cory Bahringer\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1989-07-11\",\n            \"amount_of_words\": 3741,\n            \"price\": \"517.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 65,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Maggio, Purdy and Morissette\",\n            \"author\": \"Emmet Kassulke\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1999-09-12\",\n            \"amount_of_words\": 7814,\n            \"price\": \"114.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 66,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Block PLC\",\n            \"author\": \"Audie Halvorson\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2010-09-22\",\n            \"amount_of_words\": 4534,\n            \"price\": \"206.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 67,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Buckridge Inc\",\n            \"author\": \"Jeanette Connelly\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1974-08-17\",\n            \"amount_of_words\": 4082,\n            \"price\": \"926.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 68,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Jakubowski-Zulauf\",\n            \"author\": \"Carole Blanda\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1973-12-16\",\n            \"amount_of_words\": 6062,\n            \"price\": \"156.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 69,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Russel-Sawayn\",\n            \"author\": \"Marilyne Gleichner\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1992-04-11\",\n            \"amount_of_words\": 9077,\n            \"price\": \"46.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 70,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Kunde PLC\",\n            \"author\": \"Norma O'Reilly\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2021-10-27\",\n            \"amount_of_words\": 7373,\n            \"price\": \"194.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 71,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Romaguera-Little\",\n            \"author\": \"Baylee Brown\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1975-04-23\",\n            \"amount_of_words\": 3636,\n            \"price\": \"731.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 72,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Blanda, Schulist and Schuster\",\n            \"author\": \"Caleigh Schowalter\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"1988-04-30\",\n            \"amount_of_words\": 8052,\n            \"price\": \"14.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 73,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Tremblay and Sons\",\n            \"author\": \"Janelle Grimes\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1979-07-17\",\n            \"amount_of_words\": 8196,\n            \"price\": \"935.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 74,\n            \"title\": \"Ms.\",\n            \"publisher\": \"McGlynn, Bergstrom and Luettgen\",\n            \"author\": \"Margarett Bergstrom\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2011-07-28\",\n            \"amount_of_words\": 4431,\n            \"price\": \"134.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 75,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Zboncak-Moen\",\n            \"author\": \"Cale Smitham\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"2002-12-01\",\n            \"amount_of_words\": 2930,\n            \"price\": \"432.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 76,\n            \"title\": \"Miss\",\n            \"publisher\": \"Skiles Ltd\",\n            \"author\": \"Lincoln Hammes\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1975-11-30\",\n            \"amount_of_words\": 8586,\n            \"price\": \"285.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 77,\n            \"title\": \"Miss\",\n            \"publisher\": \"Dach-Hickle\",\n            \"author\": \"Kiarra Ernser\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"2001-10-05\",\n            \"amount_of_words\": 2662,\n            \"price\": \"555.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 78,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Rempel, Lueilwitz and Marquardt\",\n            \"author\": \"Trent Howe\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2022-03-12\",\n            \"amount_of_words\": 3483,\n            \"price\": \"782.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 79,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Morissette-McGlynn\",\n            \"author\": \"Edward Bosco\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"2001-09-18\",\n            \"amount_of_words\": 8535,\n            \"price\": \"274.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 80,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Hansen PLC\",\n            \"author\": \"Amelia Hyatt\",\n            \"genre\": \"fantasy\",\n            \"book_publication\": \"2008-07-08\",\n            \"amount_of_words\": 3253,\n            \"price\": \"37.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 81,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Howell-Romaguera\",\n            \"author\": \"Waldo Sipes\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2007-08-16\",\n            \"amount_of_words\": 4094,\n            \"price\": \"702.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 82,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Ritchie PLC\",\n            \"author\": \"Arvilla Connelly\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2007-01-17\",\n            \"amount_of_words\": 5517,\n            \"price\": \"241.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 83,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Grant-Boehm\",\n            \"author\": \"Haskell Abbott\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1973-06-23\",\n            \"amount_of_words\": 1380,\n            \"price\": \"244.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 84,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Powlowski LLC\",\n            \"author\": \"Clotilde Nienow\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2014-07-10\",\n            \"amount_of_words\": 3602,\n            \"price\": \"142.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 85,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Kreiger, Larson and Schaefer\",\n            \"author\": \"Susanna Hammes\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"2017-03-15\",\n            \"amount_of_words\": 53,\n            \"price\": \"614.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 86,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Langosh-Parker\",\n            \"author\": \"Crawford Cassin\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1997-04-07\",\n            \"amount_of_words\": 6329,\n            \"price\": \"671.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 87,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Stanton-Stracke\",\n            \"author\": \"Lurline Hegmann\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2020-12-13\",\n            \"amount_of_words\": 6045,\n            \"price\": \"334.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 88,\n            \"title\": \"Miss\",\n            \"publisher\": \"Stanton, Boyer and Marquardt\",\n            \"author\": \"Ciara Runolfsson\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1989-04-13\",\n            \"amount_of_words\": 3924,\n            \"price\": \"624.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 89,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Pfeffer-Feest\",\n            \"author\": \"Lucy Braun\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1982-12-06\",\n            \"amount_of_words\": 6355,\n            \"price\": \"985.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 90,\n            \"title\": \"Ms.\",\n            \"publisher\": \"Dietrich Ltd\",\n            \"author\": \"Lia Fritsch\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1999-11-12\",\n            \"amount_of_words\": 4168,\n            \"price\": \"842.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 91,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Shields-Cartwright\",\n            \"author\": \"Giovanni Graham\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"2014-05-24\",\n            \"amount_of_words\": 7839,\n            \"price\": \"807.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 92,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Mohr, Gleichner and Greenfelder\",\n            \"author\": \"Gladyce Kub\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1981-09-15\",\n            \"amount_of_words\": 7280,\n            \"price\": \"474.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 93,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Kub, Rodriguez and Schulist\",\n            \"author\": \"Raheem Collins\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"2002-07-23\",\n            \"amount_of_words\": 8075,\n            \"price\": \"478.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 94,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Walsh PLC\",\n            \"author\": \"Soledad Pfeffer\",\n            \"genre\": \"biography\",\n            \"book_publication\": \"1970-03-28\",\n            \"amount_of_words\": 7861,\n            \"price\": \"914.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 95,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Sawayn, Abshire and Rath\",\n            \"author\": \"Mathew Streich\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1977-05-17\",\n            \"amount_of_words\": 8691,\n            \"price\": \"743.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 96,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Schoen LLC\",\n            \"author\": \"Yvonne Crona\",\n            \"genre\": \"futuristic\",\n            \"book_publication\": \"1982-03-03\",\n            \"amount_of_words\": 5571,\n            \"price\": \"992.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 97,\n            \"title\": \"Mrs.\",\n            \"publisher\": \"Friesen-Labadie\",\n            \"author\": \"Princess Wolf\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1992-07-15\",\n            \"amount_of_words\": 2683,\n            \"price\": \"738.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 98,\n            \"title\": \"Mr.\",\n            \"publisher\": \"Stiedemann PLC\",\n            \"author\": \"Uriel Reichel\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"2020-02-22\",\n            \"amount_of_words\": 7605,\n            \"price\": \"730.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 99,\n            \"title\": \"Dr.\",\n            \"publisher\": \"Pollich-Franecki\",\n            \"author\": \"Lyda Simonis\",\n            \"genre\": \"horror\",\n            \"book_publication\": \"1993-08-27\",\n            \"amount_of_words\": 6281,\n            \"price\": \"891.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        },\n        {\n            \"id\": 100,\n            \"title\": \"Prof.\",\n            \"publisher\": \"Crooks, Daniel and Nolan\",\n            \"author\": \"Sammie Cartwright\",\n            \"genre\": \"science fiction\",\n            \"book_publication\": \"1988-08-12\",\n            \"amount_of_words\": 8106,\n            \"price\": \"12.00\",\n            \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n            \"updated_at\": \"2024-07-20T07:17:32.000000Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create new Book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Ivan best PHP coder\",\n    \"publisher\": \"Lylyk Ivan\",\n    \"author\": \"Lylyk Ivan\",\n    \"genre\": \"science fiction\",\n    \"book_publication\": \"2024-07-21\",\n    \"amount_of_words\": 3644,\n    \"price\": \"300.00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/books",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"books"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": [
+				{
+					"name": "Create new Book",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Ivan best PHP coder\",\n    \"publisher\": \"Lylyk Ivan\",\n    \"author\": \"Lylyk Ivan\",\n    \"genre\": \"science fiction\",\n    \"book_publication\": \"2024-07-21\",\n    \"amount_of_words\": 3644,\n    \"price\": \"300.00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/books",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.25.3"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 21 Jul 2024 15:55:11 GMT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"title\": \"Ivan best PHP coder\",\n        \"publisher\": \"Lylyk Ivan\",\n        \"author\": \"Lylyk Ivan\",\n        \"genre\": \"science fiction\",\n        \"book_publication\": \"2024-07-21\",\n        \"amount_of_words\": 3644,\n        \"price\": 300,\n        \"updated_at\": \"2024-07-21T15:55:11.000000Z\",\n        \"created_at\": \"2024-07-21T15:55:11.000000Z\",\n        \"id\": 2042\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful PUT request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Ivan best PHP coder 123\",\n        \"publisher\": \"Lylyk Ivan\",\n        \"author\": \"Lylyk Ivan\",\n        \"genre\": \"science fiction\",\n        \"book_publication\": \"2024-07-21\",\n        \"amount_of_words\": 3644,\n        \"price\": 300\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/books/{{bookId}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"{{bookId}}"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+			},
+			"response": [
+				{
+					"name": "Update Book",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Ivan best PHP coder 123\",\n        \"publisher\": \"Lylyk Ivan\",\n        \"author\": \"Lylyk Ivan\",\n        \"genre\": \"science fiction\",\n        \"book_publication\": \"2024-07-21\",\n        \"amount_of_words\": 3644,\n        \"price\": 300\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/books/{{bookId}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"{{bookId}}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.25.3"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 21 Jul 2024 15:56:06 GMT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"title\": \"Ivan best PHP coder 123\",\n        \"publisher\": \"Lylyk Ivan\",\n        \"author\": \"Lylyk Ivan\",\n        \"genre\": \"science fiction\",\n        \"book_publication\": \"2024-07-21\",\n        \"amount_of_words\": 3644,\n        \"price\": \"300.00\",\n        \"created_at\": \"2024-07-20T07:17:32.000000Z\",\n        \"updated_at\": \"2024-07-21T15:56:06.000000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful DELETE request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/books/{{bookId}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"{{bookId}}"
+					]
+				},
+				"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+			},
+			"response": [
+				{
+					"name": "Delete Book",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/books/{{bookId}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"{{bookId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.25.3"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.2"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 21 Jul 2024 15:56:10 GMT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "1"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "localhost"
+		},
+		{
+			"key": "bookId",
+			"value": "1"
+		}
+	]
+}
