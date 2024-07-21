@@ -42,4 +42,4 @@ This project is build with all default Laravel abilities
 ## Testing
 This project supports pest tests, all configurations of Environment stored in `src\phpunit.xml`
 For testing used sqlite database connection
-To run tests use ./vendor/bin/pest command inside docker container
+To run tests use `./vendor/bin/pest` command inside docker container
